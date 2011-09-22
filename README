@@ -1,14 +1,15 @@
 R script to make an "average" track of several GPS tracks by combining/merging
-them into a "line of best fit". Based on the work of Michiel Faber
-<http://www.openstreetmap.org/user/Michiel%20Faber> who has made an R script
-and posted Dutch language instructions on how to use it, in the OpenStreetMap
-forums <http://forum.openstreetmap.org/viewtopic.php?id=11202>. Michiel has
-noted that this isn’t the perfect way to do it, but that it works for him.
-He points to the TopoFusion software and a paper they have written for a more
-sophisticated method <http://www.topofusion.com/network.php>. The issue has
-also been discussed on the gpsbabel-misc mailing list.
-<http://sourceforge.net/mailarchive/forum.php?thread_name=AANLkTi%3DveEFYN7KnUWiUzD7wzvaXh0eDEavWCttJEVN1%40mail.gmail.com&forum_name=gpsbabel-misc>
+them into a "line of best fit". Made by Michiel Faber
+<http://www.openstreetmap.org/user/Michiel%20Faber> and wrapped and "packaged" by Guttorm Flatabø.
+This isn’t the perfect way to do it, but it works.
+
+TopoFusion software uses a more sophisticated method and have written a paper about it
+<http://www.topofusion.com/network.php>. The issue has also been discussed on the gpsbabel-misc mailing list 
+<http://goo.gl/HJE5s>.
 
 See http://wiki.openstreetmap.org/wiki/Average_tracks for usage instructions.
 
 Home: https://github.com/dittaeva/Average-tracks
+
+This software is dedicated to the public domain through CC0:
+http://creativecommons.org/publicdomain/zero/1.0/
