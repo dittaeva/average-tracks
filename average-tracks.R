@@ -4,8 +4,8 @@
 # This software is dedicated to the public domain through CC0:
 # http://creativecommons.org/publicdomain/zero/1.0/
 #
-# See http://wiki.openstreetmap.org/wiki/Average_tracks for usage instructions.
-# Home: https://github.com/dittaeva/Average-tracks
+# See http://wiki.openstreetmap.org/wiki/average_tracks for usage instructions.
+# Home: https://github.com/dittaeva/average-tracks
 # version: 0.4
 # date: 31-aug-2011
 
