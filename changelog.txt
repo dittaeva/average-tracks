@@ -1,0 +1,133 @@
+Changelog
+Creator: Michiel Faber
+Original start date: back in 2009?
+script/program: AverageTrack
+Description: This program tries to make an 'average' track out of several gps recordings. 
+Goal: Ultimately, it should create a network of tracks, similar to the Topofusion software (http://www.topofusion.com).
+      For more details read their paper at: http://www.topofusion.com/jcdl-04-trails.pdf.
+
+Versioning for now works Ubuntu style: yearmonthday
+------------
+# Version:
+xxxxxxxx
+
+# Changes:
+-
+
+------------
+# Version:
+20120121
+
+# Changes:
+- Output from fLoadFiles() expanded to also outputs the filenames of the imported files.
+- Moved several function from single files and "functions.R" to "functionsAverage.R" and "functionsGlobal.R".
+- Moved code from fFindTrackWithMostPoints() into fAverageTrack().
+- Added description and examples to several large or important functions  
+
+------------
+# Version:
+20120115
+
+# Changes:
+- Create two functions to read in *.gpx files. 
+- Function read1GPX() reads one file and converts it to a data.frame or to a SpatialPointDataFrame
+- Function readGPX() reads a vector of filenames and calls for each filename read1GPX() resulting in a list.
+- Added several lines to write output to a logfile. 
+- Changed several defaults. I only want to average the input. Input is therefore limited to 2 files.
+
+------------
+# Version:
+20120103
+
+# Changes:
+- Create several overal functions to organise the scripts and flow of the program
+
+------------
+# Version:
+20111230
+
+# Changes:
+- wrote functions to find closest point on a known line from a given point with slope and intercept (see "findIntersectionWithorthogonalLine.R")
+- put code to find track with most points in its own function (fFindTrackWithMostPoints(track1, track2))
+- Wrote a function to average two lines based on closest point on line to point.
+- Wrote a wrapper to choose which of the methods you want to use for averaging. Moth methods are also possible.
+- Wrote a function fCreateTrack() to create routes from two lists of points. 
+
+# TO DO
+- When averaging 'lijn1' and 'lijn2' from test grootLeggelderveld, some points fail with method "l". 
+  See fore example point 7, 10, 11, (13, 14, 15?) and 16. Test to check if point is on line fails.
+
+------------
+# Version:
+20111213
+
+# Changes:
+- Rewrote loadFiles.R to be a function. Add more error handling.
+- Rewrote findIntersection.R to be a function. Add more error handling.
+- Rewrote NewTracks.R to be a function.
+- Moved fAverageTrack() from functions.R to its one file fAverageTrack.R
+- Wrote two functions. They sort the track so the smallest longtitude of begin or endpoint is set as first point(x). 
+	Thus sorting from west to east. When both points hava the same longtidude sorting is done on lattitude (y). Sorting from south to north.
+- Added a function 'fSaveToOneTrack()' to save all tracks into one gpx file with several track segements (trkseg).
+
+# TO DO
+- Averaging tracks and paths and clearing spike doesn't work 100% correct. 
+- Probably, i have to write more in functions, so i can re-use stuff more. 
+- Search for paralel tracks to average
+
+------------
+# Version:
+20111203
+
+# Changes:
+- Changed the working of rounding the numbers. R always calculates with full precision, even when less digits are shown. Rounding is not needed, only for writing of results. Export of the intersections and writing the gpx-files now uses global variable 'roundTo'. All other roundings are removed.
+- Cleaned up all the code
+- Added a second intersection if a route intersects with itself. Removed again because in newTracks I uncommented a test that both routeID's of a intersections couldn't be the same. But ofcourse they can. 
+- Added code to search for tracks to average
+- Added code to search for tracks with same begin and end point. 
+
+# TO DO
+- Averaging tracks and paths and clearing spike doesn't work 100% correct. 
+- Probably, i have to write more in functions, so i can re-use stuff more. 
+- Search for paralel tracks to average
+
+------------
+# Version:
+20111130
+
+# Changes:
+- Moved the code to write a gpx-track into fSaveTrack() and moved to functions.R. 
+- Cleaning up of fCalculateSlope()
+- In loadFiles.R use function fCalculateSlope() to calculate slopes for each Route added.
+- In NewTracks.R, calculate slope with fCalculateSlope() and write gpx-files with fSaveTracks()
+- In NewTracks.R added test to see if dd (all intersections for a track) actually has rows (intersections). If so, continue
+- Created a function to create a point to be added; fPointToAdd().
+- In NewTracks.R used the function fPointToAdd().
+- Tried to make some sense out of the averageLine() function and the distanceToLine() function. The seem to work again. 
+- busy adding code to search for 2 lines with the same begin and endpoint. They should be averaged.
+
+# TO DO
+- fix the resulting tracks. It's actually done. There is still a minor detail to work out. If a intersection is the begin and end point of a track, the endpoint is not found...
+- Continue with cleaning up the code in other files.
+- Search for round trips and spikes
+- Search for paralel tracks to average
+
+------------
+# Version:
+20111123
+
+# Changes:
+- Setting up projectdir and testfiles.
+- Changed call to columns from dd[,x] to dd$x[] to make changing the format easier.
+- Added the possibilty to write *.gpx files from tracks
+- updated the code on readabilty and removed obsolete code.
+- Worked up to "loadFiles.R", "findIntersections.R", "newTracks.R" and "saveTracks.R". Program runs, but the resulting tracks are not correct.
+- Added garbage collection
+
+# TO DO
+- fix the resulting tracks. It's actually done. There is still a minor detail to work out. If a intersection is the begin and end point of a track, the endpoint is not found...
+- Continue with cleaning up the code in other files.
+- Search for round trips and spikes
+- Search for paralel tracks to average
+
+
