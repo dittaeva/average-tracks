@@ -13,10 +13,10 @@ source("functionsAverage.R")
 loadedTracks <- fLoadFiles(
 	inputDir="~/input/", # Directory with input files. 
 	listOfFiles=NULL,
-	fileType="gpx", # or csv
+	fileType="gpx", # Use "gpx" or "csv"
 	nTracks=0,
 	loadHeader=FALSE, # csv files without a header
-	method="rgdal") # or with package maptools. Both get installed if not already done so.
+	method="rgdal") # Can use "rgdal" or "maptools". Both will autoinstall if you have the necessary libraries, and installation permissions.
 
 fileNames <- loadedTracks[[2]]
 tracks <- loadedTracks[[1]]
