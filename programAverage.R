@@ -28,7 +28,7 @@ averageTrack <- fAverageTrack(
 	method="b") # Combine both averaging methods. "p" for only point method, "l" for line method.
 
 # Uncomment png() to save plot as png, also uncomment dev.off() on line 42.
-#png(filename = "output/averageTrack.png", width=2048, height=2048, res=200)
+png(filename = "output/averageTrack.png", width=2048, height=2048, res=200)
  plot(tracks[tracks$routeID==1,2:1], type="l", pch=2, col="green")
  lines(tracks[tracks$routeID==2,2:1], type="l", pch=2, col="green")
  lines(averageTrack[,2:1], type="l", pch=1, col="red")
@@ -39,7 +39,7 @@ averageTrack <- fAverageTrack(
  legend.pch <- c(2,1,4) 
  legend.position <- "topleft"
  legend(x=legend.position, legend=legend.text, col=legend.col, lty=legend.lty, pch=legend.pch)
-#dev.off() # Uncomment to save plot.
+dev.off() # Uncomment to save plot.
 
 fSaveTrack(
 	track=averageTrack,
