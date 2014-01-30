@@ -9,7 +9,8 @@
 # version: 0.5
 # date: 2014-01-02
 
-setwd("~/Documents/scripts/averageScripts/")
+# Uncomment to set working directory to something else than current directory
+#setwd("~/")
 
 # Save the start time
 beginTime <- proc.time()
@@ -80,7 +81,7 @@ for (i in 1:ntracks) { # search in all routeID's
 refRouteXcor <- tracks$lon[tracks$routeID==refRouteID]
 refRouteYcor <- tracks$lat[tracks$routeID==refRouteID]
 newTracks <- tracks[tracks$routeID==refRouteID, ] # store refRoute in a new list of routes
-averageTrack <- data.frame(lon=rep(0, nrow(newTracks)), lat=rep(0, nrow(newTracks)), stringsAsFactors=F)
+averageTrack <- data.frame(lat=rep(0, nrow(newTracks)), lon=rep(0, nrow(newTracks)), stringsAsFactors=F)
 
 # for all tracks in tracks -> l
 # for all points in refRoute -> k
